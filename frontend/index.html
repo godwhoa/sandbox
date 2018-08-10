@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link rel="stylesheet" href="xterm/xterm.css">
+    <script src="xterm/xterm.js"></script>
+</head>
+
+<body>
+
+    <button id="run">Run!</button>
+    <section id="container" style="width:50%;height:700px;border:1px solid grey"></section>
+    <section id="terminal" style="width:50%;"></section>
+
+    <script src="vs/loader.js"></script>
+    <script>
+        require.config({
+            paths: {
+                'vs': 'vs'
+            }
+        });
+        require(['vs/editor/editor.main'], function () {
+            var editor = monaco.editor.create(document.getElementById('container'), {
+                value: [
+                    '#include <stdio.h>\n',
+                    'int main() {',
+                    '\tprintf("hello!");',
+                    '}'
+                ].join('\n'),
+                readOnly: false,
+                theme: "vs-dark",
+                language: 'c'
+            });
+            window.editor = editor;
+        });
+
+        var term = new Terminal();
+        term.open(document.getElementById('terminal'));
+        // term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ')
+        document.getElementById("run").addEventListener('click', () => {
+            term.focus();
+            term.write('\x1bc');
+            term.setOption("cursorBlink", true)
+            var formData = new FormData()
+            console.log(window.editor.getValue())
+            formData.set('src', new Blob([window.editor.getValue()]), 'main.c');
+            // console.log(formData.getAll());
+            fetch('/run', {
+                method: 'post',
+                body: formData
+            }).then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                term.write(data.stdout);
+                term.write(data.stderr);
+                term.setOption("cursorBlink", false)
+                term.blur();
+            });
+        })
+    </script>
+</body>
+
+</html>

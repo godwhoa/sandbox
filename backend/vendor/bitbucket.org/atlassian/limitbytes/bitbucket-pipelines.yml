@@ -1,0 +1,14 @@
+image: golang
+pipelines:
+  default:
+    - step:
+        script:
+          - mkdir -p /go/src/bitbucket.org/stride/limitbytes
+          - cp -R ./* /go/src/bitbucket.org/stride/limitbytes
+          - go get -u golang.org/x/tools/cmd/goimports
+          - if [[ "$(goimports -l -d .)" != "" ]]; then echo "$(goimports -l -d .)" && exit 1; fi
+          - go get -u github.com/alecthomas/gometalinter
+          - gometalinter --install
+          - gometalinter --vendor --disable-all --enable=vet --enable=vetshadow --enable=golint --enable=ineffassign --enable=goconst --enable=staticcheck --tests .
+          - echo '# Generate coverage report and test for race conditions'
+          - go test -race -cover

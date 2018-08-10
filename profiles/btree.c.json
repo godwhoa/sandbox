@@ -1,0 +1,69 @@
+{
+    "defaultAction": "SCMP_ACT_ERRNO",
+    "syscalls": [{
+            "name": "access",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "arch_prctl",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "brk",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "close",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "execve",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "exit_group",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "fstat",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "mmap",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "mprotect",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "munmap",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "open",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "read",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "write",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        }
+    ]
+}

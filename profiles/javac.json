@@ -1,0 +1,104 @@
+{
+    "defaultAction": "SCMP_ACT_ERRNO",
+    "syscalls": [{
+            "name": "access",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "arch_prctl",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "brk",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "clone",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "close",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "execve",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "fstat",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "futex",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "getrlimit",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "mmap",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "mprotect",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "munmap",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "open",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "read",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "readlink",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "rt_sigaction",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "rt_sigprocmask",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "set_robust_list",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "set_tid_address",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        },
+        {
+            "name": "stat",
+            "action": "SCMP_ACT_ALLOW",
+            "args": null
+        }
+    ]
+}
